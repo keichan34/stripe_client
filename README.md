@@ -11,7 +11,7 @@ at your own risk. I encourage you to review the code and test suite before using
 
 ## Installation
 
-  1. Add stripe_client to your list of dependencies in `mix.exs`:
+  1. Add `stripe_client` to your list of dependencies in `mix.exs`:
 
         def deps do
           [{:stripe_client, "~> 0.0.1"}]

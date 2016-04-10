@@ -1,10 +1,6 @@
 defmodule StripeClient.Adapter do
   @moduledoc """
   A behaviour defining the API an adapter should adhere to.
-
-  You shouldn't need to access this module manually, since it doesn't have any
-  exported functions, but it has the documentation for all the functions that
-  each adapter uses.
   """
 
   alias StripeClient.{Account, Customer, Token}
@@ -26,7 +22,6 @@ defmodule StripeClient.Adapter do
   @callback customer_update(id, params) :: customer_response
   @callback customer_delete(id) :: delete_response
   @callback customer_all(params) :: {:ok, List.t} | {:error, reason}
-  @callback customer_delete_active_card(id) :: customer_response
 
   # Token
   @type token_response :: {:ok, Token.t} | {:error, reason}
@@ -38,5 +33,4 @@ defmodule StripeClient.Adapter do
   @type account_response :: {:ok, Account.t} | {:error, reason}
 
   @callback account_retrieve :: account_response
-  @callback account_delete_data :: delete_response
 end

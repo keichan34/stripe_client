@@ -15,8 +15,7 @@ end
 defmodule StripeClient.Adapter.HTTPoison.ResponseParser do
   @moduledoc false
 
-  alias StripeClient.{Account, Customer, Card, Error, Subscription, Token, List,
-    DeleteResponse}
+  alias StripeClient.{Error, DeleteResponse}
 
   import StripeClient.Adapter.HTTPoison.ResponseParserGenerator
 
@@ -32,12 +31,13 @@ defmodule StripeClient.Adapter.HTTPoison.ResponseParser do
     end
   end
 
-  object_parser "account", %Account{}
-  object_parser "customer", %Customer{}
-  object_parser "card", %Card{}
-  object_parser "subscription", %Subscription{}
-  object_parser "token", %Token{}
-  object_parser "list", %List{}
+  object_parser "account",      %StripeClient.Account{}
+  object_parser "card",         %StripeClient.Card{}
+  object_parser "customer",     %StripeClient.Customer{}
+  object_parser "list",         %StripeClient.List{}
+  object_parser "plan",         %StripeClient.Plan{}
+  object_parser "subscription", %StripeClient.Subscription{}
+  object_parser "token",        %StripeClient.Token{}
 
   def parse_response(list) when is_list(list),
     do: Enum.map(list, &parse_response/1)

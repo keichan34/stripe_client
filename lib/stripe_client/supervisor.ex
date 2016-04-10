@@ -9,12 +9,6 @@ defmodule StripeClient.Supervisor do
     children = [
     ]
 
-    if StripeClient.memory_adapter_enabled? do
-      children = children ++ [
-        worker(StripeClient.MemoryServer, [])
-      ]
-    end
-
     supervise(children, strategy: :one_for_one)
   end
 end
