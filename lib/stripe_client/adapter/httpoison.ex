@@ -99,7 +99,7 @@ defmodule StripeClient.Adapter.HTTPoison do
     [
       {"Accept", "application/json"},
       {"Authorization", authorization_header_contents},
-      {"User-Agent", "Elixir/StripeClient v0.0.1"},
+      {"User-Agent", "Elixir/StripeClient"},
       {"Accept-Language", "en"},
       {"Stripe-Version", @api_version}
     ]

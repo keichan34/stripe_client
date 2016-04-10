@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Accept": "application/json",
+        "Authorization": "Basic c2tfdGVzdF9URVNUX1NFQ1JFVF9LRVk6",
+        "User-Agent": "Elixir/StripeClient",
+        "Accept-Language": "en",
+        "Stripe-Version": "2016-03-07"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.stripe.com/v1/account"
+    },
+    "response": {
+      "body": "{\n  \"id\": \"acct_17BeFnGll05OtK5E\",\n  \"object\": \"account\",\n  \"business_logo\": null,\n  \"business_name\": \"Example Co\",\n  \"business_url\": \"www.example.com\",\n  \"charges_enabled\": false,\n  \"country\": \"JP\",\n  \"default_currency\": \"jpy\",\n  \"details_submitted\": false,\n  \"display_name\": \"Example Co\",\n  \"email\": \"someone@example.com\",\n  \"managed\": false,\n  \"statement_descriptor\": \"EXAMPLE\",\n  \"support_email\": \"support@example.com\",\n  \"support_phone\": \"\",\n  \"support_url\": \"\",\n  \"timezone\": \"Asia/Tokyo\",\n  \"transfers_enabled\": false\n}\n",
+      "headers": {
+        "Server": "nginx",
+        "Date": "Sun, 10 Apr 2016 12:57:07 GMT",
+        "Content-Type": "application/json",
+        "Content-Length": "541",
+        "Connection": "keep-alive",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Max-Age": "300",
+        "Cache-Control": "no-cache, no-store",
+        "Request-Id": "req_8FCW3zH8Bxgkvn",
+        "Stripe-Version": "2016-03-07",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

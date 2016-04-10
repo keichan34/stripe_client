@@ -34,7 +34,7 @@ defmodule StripeClient.Account do
   @type t :: %StripeClient.Account{id: String.t, object: String.t}
 
   @doc """
-  Retrieves the current account from Stripe
+  Retrieves the details of the account.
   """
   def retrieve, do: adapter.account_retrieve
 end
