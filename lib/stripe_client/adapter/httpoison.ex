@@ -19,6 +19,11 @@ defmodule StripeClient.Adapter.HTTPoison do
   def customer_all(params),
     do: request(:get, {"/customers", params})
 
+  def event_retrieve(id),
+    do: request(:get, "/events/#{id}")
+  def event_all(params),
+    do: request(:get, {"/events", params})
+
   def plan_create(params),
     do: request(:post, "/plans", params)
   def plan_retrieve(id),

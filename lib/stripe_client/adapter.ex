@@ -20,6 +20,12 @@ defmodule StripeClient.Adapter do
   @callback customer_delete(id) :: delete_response
   @callback customer_all(params) :: list_response
 
+  # Event
+  @type event_response :: {:ok, StripeClient.Event.t} | {:error, reason}
+
+  @callback event_retrieve(id) :: event_response
+  @callback event_all(params) :: list_response
+
   # Plan
   @type plan_response :: {:ok, Plan.t} | {:error, reason}
 

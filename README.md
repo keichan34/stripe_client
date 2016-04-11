@@ -43,6 +43,7 @@ resources are implemented:
 - [x] `account`: `StripeClient.Account`
 - [x] `card`: `StripeClient.Card`
 - [x] `customer`: `StripeClient.Customer`
+- [x] `event`: `StripeClient.Event`
 - [x] `list`: `StripeClient.List`
 - [x] `plan`: `StripeClient.Plan`
 - [x] `subscription`: `StripeClient.Subscription`
