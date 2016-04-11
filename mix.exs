@@ -45,7 +45,7 @@ defmodule StripeClient.Mixfile do
   defp deps do
     [
       {:httpoison, "~> 0.8.1"},
-      {:poison, "~> 2.1"},
+      {:poison, "~> 2.1 or ~> 1.5"},
       {:exvcr, "~> 0.7", only: :test},
     ]
   end
