@@ -5,7 +5,14 @@ defmodule StripeClient.Adapter.HTTPoison.ResponseParserGenerator do
     quote do
       def parse_response(%{"object" => unquote(object_name)} = response) do
         Enum.reduce response, unquote(tmpl), fn({key, value}, acc) ->
-          Map.put acc, String.to_existing_atom(key), parse_response(value)
+          atom_key = try do
+            String.to_existing_atom(key)
+          rescue
+            ArgumentError ->
+              raise(ArgumentError, message: "\"#{key}\" in #{inspect response} is not a valid atom.")
+          end
+
+          Map.put acc, atom_key, parse_response(value)
         end
       end
     end

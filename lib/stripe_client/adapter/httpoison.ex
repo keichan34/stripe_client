@@ -1,7 +1,5 @@
 defmodule StripeClient.Adapter.HTTPoison do
-  @moduledoc """
-  The HTTPoison adapter for StripeClient.
-  """
+  @moduledoc false
 
   @behaviour StripeClient.Adapter
 
@@ -82,7 +80,7 @@ defmodule StripeClient.Adapter.HTTPoison do
   defp build_body(body) when is_list(body) do
     Enum.map(body, fn
       {key, value} ->
-        key <> "=" <> (value |> to_string |> URI.encode_www_form)
+        to_string(key) <> "=" <> (value |> to_string |> URI.encode_www_form)
       _ ->
         raise(ArgumentError, message: "all values must be binaries")
     end)

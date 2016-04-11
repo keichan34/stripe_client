@@ -16,5 +16,5 @@ defmodule StripeClient.Token do
   @type t :: %StripeClient.Token{}
 
   def create(params), do: adapter.token_create(params)
-  def retrieve(id),   do: adapter.token_retrieve(id)
+  def retrieve(id),   do: adapter.token_retrieve(n_id(id))
 end

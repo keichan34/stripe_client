@@ -16,6 +16,7 @@ defmodule StripeClient.Card do
     :dynamic_last4,
     :exp_month,
     :exp_year,
+    :fingerprint,
     :funding,
     :last4,
     :metadata,

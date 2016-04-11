@@ -1,7 +1,5 @@
 defmodule StripeClient.Adapter do
-  @moduledoc """
-  A behaviour defining the API an adapter should adhere to.
-  """
+  @moduledoc false
 
   @type http_error_code :: non_neg_integer
   @type response_body :: binary

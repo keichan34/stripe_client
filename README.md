@@ -32,24 +32,36 @@ at your own risk. I encourage you to review the code and test suite before using
 
 ## Usage
 
-StripeClient uses pluggable adapters to provide a robust test environment without
-having to rely on mocking HTTP requests.
+StripeClient uses a pluggable adapter framework. Currently it only ships with
+a `HTTPoison`-based adapter. A memory test server adapter is planned in the
+future in order to provide a robust test environment without having to rely
+on mocking HTTP requests.
 
-A shortcut is provided to return the active adapter: `StripeClient.adapter/0`.
+Stripe resources are represented as Elixir structs. Currently, the following
+resources are implemented:
 
-To see the functions adapters implement, please see `StripeClient.Adapter`.
+- [x] `account`: `StripeClient.Account`
+- [x] `card`: `StripeClient.Card`
+- [x] `customer`: `StripeClient.Customer`
+- [x] `list`: `StripeClient.List`
+- [x] `plan`: `StripeClient.Plan`
+- [x] `subscription`: `StripeClient.Subscription`
+- [x] `token`: `StripeClient.Token`
 
 ## Example
 
 ```elixir
-{:ok, token} = StripeClient.adapter.token_create(card: %{
-  number: "4242-4242-4242-4242",
-  exp_month: "11",
-  exp_year: "2017",
-  cvc: "123",
-  name: "EXAMPLE PERSON"
+{:ok, token} = StripeClient.Token.create(%{
+  "card[number]" => "4242-4242-4242-4242",
+  "card[exp_month]" => "11",
+  "card[exp_year]" => "2017",
+  "card[cvc]" => "123",
+  "card[name]" => "EXAMPLE PERSON"
 })
-{:ok, customer} = StripeClient.adapter.customer_create(email: "hello@example.com", source: token)
+{:ok, customer} = StripeClient.Customer.create(
+  email: "hello@example.com",
+  source: token.id
+)
 ```
 
 ## Contributing
