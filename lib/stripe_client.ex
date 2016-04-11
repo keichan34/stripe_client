@@ -31,6 +31,16 @@ defmodule StripeClient do
     |> Keyword.fetch!(:secret_key)
   end
 
+  @doc """
+  Returns the currently configured Stripe publishable key.
+
+  Raises an error if it is not set.
+  """
+  def publishable_key do
+    Application.get_env(:stripe_client, :credentials, [])
+    |> Keyword.fetch!(:publishable_key)
+  end
+
   @doc false
   def start(_type, _args) do
     StripeClient.Supervisor.start_link
