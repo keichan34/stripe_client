@@ -35,7 +35,7 @@ defmodule StripeClient.Adapter do
   @callback subscription_create(id, params) :: subscription_response
   @callback subscription_retrieve(id, id) :: subscription_response
   @callback subscription_update(id, id, params) :: subscription_response
-  @callback subscription_delete(id, id) :: delete_response
+  @callback subscription_delete(id, id, params) :: delete_response
   @callback subscription_all(id, params) :: list_response
 
   # Token

@@ -36,8 +36,8 @@ defmodule StripeClient.Adapter.HTTPoison do
     do: request(:get, "/customers/#{c_id}/subscriptions/#{id}")
   def subscription_update(c_id, id, params),
     do: request(:post, "/customers/#{c_id}/subscriptions/#{id}", params)
-  def subscription_delete(c_id, id),
-    do: request(:delete, "/customers/#{c_id}/subscriptions/#{id}")
+  def subscription_delete(c_id, id, params),
+    do: request(:delete, {"/customers/#{c_id}/subscriptions/#{id}", params})
   def subscription_all(c_id, params),
     do: request(:get, {"/customers/#{c_id}/subscriptions", params})
 

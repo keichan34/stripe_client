@@ -35,8 +35,8 @@ defmodule StripeClient.Subscription do
   def update(customer_id, id, params),
     do: adapter.subscription_update(n_id(customer_id), n_id(id), params)
 
-  def delete(customer_id, id),
-    do: adapter.subscription_delete(n_id(customer_id), n_id(id))
+  def delete(customer_id, id, params \\ []),
+    do: adapter.subscription_delete(n_id(customer_id), n_id(id), params)
 
   def all(customer_id, params \\ []),
     do: adapter.subscription_all(n_id(customer_id), params)
