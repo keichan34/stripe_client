@@ -15,6 +15,8 @@ defmodule StripeClient.Event do
     :type
   ]
 
+  @type t :: %Event{}
+
   def retrieve(id),
     do: adapter.event_retrieve(n_id(id))
   def all(params \\ []),

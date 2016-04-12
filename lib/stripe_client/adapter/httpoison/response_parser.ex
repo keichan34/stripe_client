@@ -41,6 +41,7 @@ defmodule StripeClient.Adapter.HTTPoison.ResponseParser do
   object_parser "account",      %StripeClient.Account{}
   object_parser "card",         %StripeClient.Card{}
   object_parser "customer",     %StripeClient.Customer{}
+  object_parser "event",        %StripeClient.Event{}
   object_parser "list",         %StripeClient.List{}
   object_parser "plan",         %StripeClient.Plan{}
   object_parser "subscription", %StripeClient.Subscription{}
@@ -48,6 +49,10 @@ defmodule StripeClient.Adapter.HTTPoison.ResponseParser do
 
   def parse_response(list) when is_list(list),
     do: Enum.map(list, &parse_response/1)
+  def parse_response(map) when is_map(map) do
+    Enum.map(map, fn({key, value}) -> {key, parse_response(value)} end)
+    |> Enum.into(%{})
+  end
   def parse_response(other),
     do: other
 end
