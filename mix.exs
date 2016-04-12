@@ -4,7 +4,7 @@ defmodule StripeClient.Mixfile do
   def project do
     [
       app: :stripe_client,
-      version: "0.0.1",
+      version: "0.0.2",
       elixir: "~> 1.2",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -74,7 +74,7 @@ defmodule StripeClient.Mixfile do
       _ ->
         raise "Version should be a release version."
     end
-    System.cmd "git", ["tag", "-a", version_tag, "-m", "Release #{version_tag}"]
+    System.cmd "git", ["tag", "-s", version_tag, "-m", "Release #{version_tag}"]
     System.cmd "git", ["push", "--tags"]
   end
 end
