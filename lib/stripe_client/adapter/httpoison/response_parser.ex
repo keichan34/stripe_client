@@ -3,16 +3,19 @@ defmodule StripeClient.Adapter.HTTPoison.ResponseParserGenerator do
 
   defmacro object_parser(object_name, tmpl) do
     quote do
+      require Logger
+
       def parse_response(%{"object" => unquote(object_name)} = response) do
         Enum.reduce response, unquote(tmpl), fn({key, value}, acc) ->
-          atom_key = try do
-            String.to_existing_atom(key)
+          try do
+            atom_key = String.to_existing_atom(key)
+            Map.put acc, atom_key, parse_response(value)
           rescue
             ArgumentError ->
-              raise(ArgumentError, message: "\"#{key}\" in #{inspect response} is not a valid atom.")
+              # Skip invalid atoms.
+              Logger.debug "stripe_client: \"#{key}\" in #{inspect response} is not a valid atom."
+              acc
           end
-
-          Map.put acc, atom_key, parse_response(value)
         end
       end
     end

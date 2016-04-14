@@ -2,6 +2,8 @@
 
 use Mix.Config
 
+config :logger, level: :debug
+
 config :stripe_client,
   credentials: [
     secret_key: "sk_test_XXX",
