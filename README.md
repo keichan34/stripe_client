@@ -14,7 +14,7 @@ at your own risk. I encourage you to review the code and test suite before using
   1. Add `stripe_client` to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:stripe_client, "~> 0.0.2"}]
+          [{:stripe_client, "~> 0.0.3"}]
         end
 
   2. Ensure `stripe_client` is started before your application:
